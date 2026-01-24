@@ -40,3 +40,16 @@ def valid_tide_station() -> str:
         9410840 - Santa Barbara
     """
     return os.getenv("TIDE_TEST_STATION_ID", "9410230")
+  
+  
+def valid_wind_station() -> str:
+    """NOAA NDBC station ID for wind data testing.
+    
+    Key SoCal NOAA Stations with wind data:
+        46221 - Santa Monica Bay
+        46222 - San Pedro
+        46225 - Torrey Pines Outer
+        LJAC1 - La Jolla
+        SDBC1 - San Diego Bay
+    """
+    return os.getenv("WIND_TEST_STATION_ID", "46221")
