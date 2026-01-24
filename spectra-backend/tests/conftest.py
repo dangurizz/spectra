@@ -29,6 +29,19 @@ def valid_cdip_station() -> str:
 
 
 @pytest.fixture
+def valid_tide_station() -> str:
+    """NOAA CO-OPS tide station ID for testing.
+    
+    Key SoCal Tide Stations:
+        9410230 - La Jolla
+        9411340 - Santa Monica
+        9410580 - Los Angeles
+        9410660 - San Pedro
+        9410840 - Santa Barbara
+    """
+    return os.getenv("TIDE_TEST_STATION_ID", "9410230")
+  
+  
 def valid_wind_station() -> str:
     """NOAA NDBC station ID for wind data testing.
     
