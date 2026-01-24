@@ -12,3 +12,8 @@ if str(PROJECT_ROOT) not in sys.path:
 @pytest.fixture
 def valid_noaa_station() -> str:
     return os.getenv("NOAA_TEST_STATION_ID", "46221")
+
+
+@pytest.fixture
+def valid_cdip_buoy() -> str:
+    return os.getenv("CDIP_TEST_BUOY_ID", "100")
