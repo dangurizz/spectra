@@ -26,3 +26,17 @@ def valid_cdip_station() -> str:
         028 - Santa Monica Bay (Malibu, Manhattan Beach)
     """
     return os.getenv("CDIP_TEST_STATION_ID", "100")
+
+
+@pytest.fixture
+def valid_wind_station() -> str:
+    """NOAA NDBC station ID for wind data testing.
+    
+    Key SoCal NOAA Stations with wind data:
+        46221 - Santa Monica Bay
+        46222 - San Pedro
+        46225 - Torrey Pines Outer
+        LJAC1 - La Jolla
+        SDBC1 - San Diego Bay
+    """
+    return os.getenv("WIND_TEST_STATION_ID", "46221")
