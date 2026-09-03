@@ -212,7 +212,7 @@ def seed_spots() -> None:
     """Insert all INITIAL_SPOTS into the Supabase spots table.
 
     Skips spots whose name already exists to allow re-running safely.
-    Requires SUPABASE_URL and SUPABASE_KEY env vars (or a .env file).
+    Requires SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY (or a .env file).
     """
     client = get_supabase_client()
 

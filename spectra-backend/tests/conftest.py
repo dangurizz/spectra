@@ -42,6 +42,7 @@ def valid_tide_station() -> str:
     return os.getenv("TIDE_TEST_STATION_ID", "9410230")
   
   
+@pytest.fixture
 def valid_wind_station() -> str:
     """NOAA NDBC station ID for wind data testing.
     

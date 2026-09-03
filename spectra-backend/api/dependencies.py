@@ -3,7 +3,7 @@ from typing import Any, Dict
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
-from database.supabase_client import get_supabase_client
+from database.supabase_client import get_supabase_auth_client
 
 security = HTTPBearer()
 
@@ -12,7 +12,7 @@ async def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(security),
 ) -> Dict[str, Any]:
     token = credentials.credentials
-    client = get_supabase_client()
+    client = get_supabase_auth_client()
     try:
         result = client.auth.get_user(token)
     except Exception:

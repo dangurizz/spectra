@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
 
-from database.supabase_client import get_supabase_client
+from database.supabase_client import get_supabase_auth_client
 from utils.logging_config import setup_logging
 
 logger = setup_logging("INFO", __name__)
@@ -26,7 +26,7 @@ class AuthResponse(BaseModel):
 
 @router.post("/signup", response_model=AuthResponse)
 async def signup(body: SignupRequest) -> AuthResponse:
-    client = get_supabase_client()
+    client = get_supabase_auth_client()
     try:
         result = client.auth.sign_up({"email": body.email, "password": body.password})
     except Exception as exc:
@@ -44,7 +44,7 @@ async def signup(body: SignupRequest) -> AuthResponse:
 
 @router.post("/login", response_model=AuthResponse)
 async def login(body: LoginRequest) -> AuthResponse:
-    client = get_supabase_client()
+    client = get_supabase_auth_client()
     try:
         result = client.auth.sign_in_with_password(
             {"email": body.email, "password": body.password}
